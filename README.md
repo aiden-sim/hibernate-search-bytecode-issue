@@ -5,5 +5,5 @@
 -javaagent:/{PROJECT_PATH}/lib/aspectjweaver-1.9.22.jar 
 -javaagent:/{PROJECT_PATH}/lib/spring-instrument-6.1.10.jar.
 ```
-4) Start the application.
-5) Check the console for any error logs.
+3) Start the application.
+4) Check the console for any error logs.
