@@ -1,5 +1,5 @@
 
-1) Install Elasticsearch version 7.10 locally and start it up.
+1) Install Elasticsearch version 7.10 locally and start it up. (port : 9200)
 2) Add the VM options
 ```
 -javaagent:/{PROJECT_PATH}/lib/aspectjweaver-1.9.22.jar 
