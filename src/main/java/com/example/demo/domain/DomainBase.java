@@ -6,12 +6,7 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.search.engine.backend.types.Projectable;
-import org.hibernate.search.engine.backend.types.Searchable;
-import org.hibernate.search.engine.backend.types.Sortable;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -28,12 +23,5 @@ public abstract class DomainBase<PK extends Serializable> extends AbstractPersis
     @Column(name = "created_date", nullable = false, updatable = false)
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    @GenericField(projectable = Projectable.YES, sortable = Sortable.YES, searchable = Searchable.YES)
     private LocalDateTime createdDate;
-
-    @Column(name = "last_modified_date")
-    @LastModifiedDate
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    @GenericField(projectable = Projectable.YES, sortable = Sortable.YES, searchable = Searchable.YES)
-    private LocalDateTime lastModifiedDate;
 }

@@ -1,12 +1,6 @@
 package com.example.demo.config;
 
 import jakarta.persistence.EntityManagerFactory;
-import org.hibernate.search.backend.elasticsearch.cfg.ElasticsearchBackendSettings;
-import org.hibernate.search.backend.elasticsearch.cfg.ElasticsearchIndexSettings;
-import org.hibernate.search.backend.elasticsearch.index.IndexStatus;
-import org.hibernate.search.engine.cfg.BackendSettings;
-import org.hibernate.search.mapper.orm.cfg.HibernateOrmMapperSettings;
-import org.hibernate.search.mapper.orm.schema.management.SchemaManagementStrategyName;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -49,12 +43,6 @@ public class RepositoryConfiguration {
                 setProperty("hibernate.id.new_generator_mapping", "true");
                 setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
                 setProperty("hibernate.physical_naming_strategy", "org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy");
-
-                setProperty(HibernateOrmMapperSettings.ENABLED, "true");
-                setProperty(BackendSettings.backendKey(ElasticsearchBackendSettings.HOSTS), "localhost:9200");
-                setProperty(BackendSettings.backendKey(BackendSettings.TYPE), ElasticsearchBackendSettings.TYPE_NAME);
-                setProperty(BackendSettings.backendKey(ElasticsearchIndexSettings.SCHEMA_MANAGEMENT_MINIMAL_REQUIRED_STATUS), IndexStatus.YELLOW.externalRepresentation());
-                setProperty(HibernateOrmMapperSettings.SCHEMA_MANAGEMENT_STRATEGY, SchemaManagementStrategyName.NONE.externalRepresentation());
             }
         };
     }
